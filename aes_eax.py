@@ -5,7 +5,7 @@ from Crypto.Cipher import AES
 from Crypto.Util import Padding
 
 
-class AesCbc(object):
+class AesEax(object):
     def __init__(self, key):
         self.key = (hashlib.sha256(key).hexdigest()).encode('utf-8')
         print(self.key)
@@ -20,7 +20,7 @@ class AesCbc(object):
         try:
             enc = base64.b64decode(enc)
             iv = enc[:AES.block_size]
-            cipher = AES.new(self.key, AES.MODE_CBC, iv)
+            cipher = AES.new(self.key, AES.MODE_EAX, iv)
             data = Padding.unpad(cipher.decrypt(
                 enc[AES.block_size:]), AES.block_size, 'pkcs7')
             return data.decode('utf-8')

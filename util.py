@@ -35,10 +35,10 @@ def zip_a_dir(path,  zip_name):
 
 
 
-def read_large_bin_file(filename):
+def read_large_bin_file(filename, buf_size=1024):
     with open(filename, "rb") as f:
         while True:
-            data = f.read(1024)
+            data = f.read(buf_size)
             if not data:
                 # print("reading-----------")
                 break

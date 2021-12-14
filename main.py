@@ -160,6 +160,6 @@ if __name__ == '__main__':
     # bench_openpgp(key, message)
     # bench_ofb(key, message)
     # bench_gcm(key, message)
-    zip_a_dir('./demo', 'data.zip')
+    # zip_a_dir('./demo', 'data.zip')
 
 
